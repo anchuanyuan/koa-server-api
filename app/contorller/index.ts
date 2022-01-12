@@ -1,9 +1,11 @@
 import { Context } from "koa";
 import logger from '../logger'
+import UserService from "../service/UserService";
 class IndexController {
-    index (ctx:Context) {
+    async index (ctx:Context) {
         logger.info('msg',ctx)
-        ctx.body = ['a','b',"c",'d','q123']
+        const user =await UserService.getUser()
+        ctx.body ={ arr:['a','b',"c",'d','q123'], user}
     }
 }
 

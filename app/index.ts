@@ -1,11 +1,11 @@
 import Koa from 'koa'
 import router from './router'
 import {Server} from 'http'
-import dotenv from 'dotenv'
-dotenv.config()
-// console.log(process.env);
+import db from './db'
 
+console.log(process.env.DB_HOST);
 
+db()
 const app = new  Koa()
 app.use(router.routes())
 
