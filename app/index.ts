@@ -3,13 +3,15 @@ import router from './router'
 import {Server} from 'http'
 import dotenv from 'dotenv'
 dotenv.config()
-console.log(process.env);
+// console.log(process.env);
 
 
 const app = new  Koa()
 app.use(router.routes())
 
 const run = (port:any):Server =>{
+   console.log(`http://localhost:${port}`);
+   
    return app.listen(port)
 }
 
